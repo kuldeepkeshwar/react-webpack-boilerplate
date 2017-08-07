@@ -21,8 +21,8 @@ const appState = [
     ],
     footer: {
       users: [
-      { image: 'http://lorempixel.com/user/50/50/' },
-      { image: 'http://lorempixel.com/user/50/50/' },
+      { image: 'http://lorempixel.com/output/people-q-c-50-50-6.jpg' },
+      { image: 'http://lorempixel.com/output/people-q-g-50-50-3.jpg' },
       { image: 'http://lorempixel.com/user/50/50/' },
       ],
       moreCount: 900,
@@ -38,14 +38,14 @@ const appState = [
       { key: 'edit', value: 'Edit widget' }, { key: 'delete', value: 'Delete widget' },
     ],
     users: [
-      { image: 'http://lorempixel.com/user/50/50/', name: 'Elle Javier - Quingco', duration: '9h 20m' },
-      { image: 'http://lorempixel.com/user/50/50/', name: 'Lester Douglas', duration: '1h 25m' },
-      { image: 'http://lorempixel.com/user/50/50/', name: 'Dmitry Shytsko', duration: '30m' },
+      { name: 'Dmitry Shytsko', duration: ((0 * 60) + 30), fill: '#F65161' },
+      { name: 'Lester Douglas', duration: ((1 * 60) + 25), fill: '#FFD331' },
+      { name: 'Elle Javier - Quingco', duration: ((9 * 60) + 20), fill: '#5A68C6' },
     ],
     footer: {
       users: [
-      { image: 'http://lorempixel.com/user/50/50/' },
-      { image: 'http://lorempixel.com/user/50/50/' },
+      { image: 'http://lorempixel.com/output/people-q-c-50-50-6.jpg' },
+      { image: 'http://lorempixel.com/output/people-q-g-50-50-3.jpg' },
       ],
       tags: [{ text: 'Highest' }],
     },

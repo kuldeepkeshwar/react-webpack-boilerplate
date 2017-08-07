@@ -40,14 +40,14 @@ const PercentageWidget = props => (
         })}
       </div>
       <a href="" className="link">+{props.footer.moreCount} more</a>
-      {props.footer.tags.map(tag => <Tag {...tag} />)}
+      {props.footer.tags.map(tag => <Tag key={tag.text} {...tag} />)}
     </Panel.Footer>
   </Panel>
 );
 PercentageWidget.propTypes = {
-  users: React.PropTypes.arrayOf.isRequired,
-  footer: React.PropTypes.objectOf.isRequired,
+  users: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  footer: React.PropTypes.objectOf(React.PropTypes.object).isRequired,
   title: React.PropTypes.string.isRequired,
-  dropdown: React.PropTypes.arrayOf.isRequired,
+  dropdown: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 };
 export default PercentageWidget;
