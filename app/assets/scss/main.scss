@@ -1,78 +1,5 @@
 @import '_app.scss';
 
-.header {
-  border-bottom: solid 1px $base-border; 
-  background: $white;
-  height: 72px;
-}
-
-nav {
-  a {
-    transition: all 300ms;
-    padding: 27px 8px 27px;
-    display: inline-block;
-    font-size: 18px;
-    font-weight: 500;
-    margin-left: 22px;
-    position: relative;
-
-    &:hover{
-      transition: all 300ms;
-      color: $light-active-color;
-    }
-
-    &.active {
-      transition: all 300ms;
-      color: $light-active-color;
-
-      &::after {
-        background: $light-active-color;
-        position: absolute;
-        content: '';
-        height: 2px;
-        width: 100%;
-        left: 0;
-        right: 0;
-        bottom: -1px;
-      }
-    }
-  }
-}
-
-.panel {
-  box-shadow: 1px 2px 3px 0 rgba(0,0,0,0.1);
-  background: $white;
-  border-radius: 6px;
-
-  .panel-head {
-    border-bottom: solid 1px $base-border;
-    padding: 16px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .panel-title {
-    flex: 2 auto;
-  }
-
-  .panel-body {
-    padding: 15px;
-  }
-
-  .panel-foot {
-    padding: 5px 15px;
-    display: flex;
-    justify-content: flex-start;
-    border-top: solid 1px $base-border;
-    align-items: center;
-
-    .label {
-      margin-left: 25px;
-    }
-  }
-}
-
 .avatar {
   width: 24px;
   height: 24px;
@@ -162,4 +89,30 @@ nav {
 .link {
   font-size: 14px;
   color: $light-grey;
+}
+
+.dotted-icon {
+  height: 4px;
+  width: 4px;
+  background: $light-grey;
+  position: relative;
+  border-radius: 100%;
+  cursor: pointer;
+
+  &::after, &::before {
+    border-radius: 100%;
+    position: absolute;
+    content: '';
+    height: 4px;
+    width: 4px;
+    background: $light-grey;   
+  }
+
+  &::after {
+    top: -7px;
+  }
+
+  &::before {
+    bottom: -7px;
+  }
 }
