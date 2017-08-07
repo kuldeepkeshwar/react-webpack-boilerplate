@@ -9,11 +9,29 @@ const PercentageWidget = props => (
       {
         props.dropdown.map((item) => {
           return (
-            <a key={item.value} href="" className="dropdown-link">{item.value}</a>
+            <div className="dropdown mr-15">
+              <a key={item.value} href="" className="dropdown-link">{item.value} <span className="arrowdown" /></a>
+              <div className="dropdown-menu">
+                <a className="dropdown-item active">Last 7 days</a>
+                <a className="dropdown-item">Last 6 days</a>
+                <a className="dropdown-item">Last 5 days</a>
+              </div>
+            </div>
           );
         })
       }
-      <span className="dotted-icon" />
+      <div className="dropdown">
+        <div className="dotted-icon">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="dropdown-menu">
+          <a className="dropdown-item active">Weekly</a>
+          <a className="dropdown-item">Monthly</a>
+          <a className="dropdown-item">Yearly</a>
+        </div>
+      </div>
     </Panel.Head>
     <Panel.Body>
       {props.users.map((user) => {

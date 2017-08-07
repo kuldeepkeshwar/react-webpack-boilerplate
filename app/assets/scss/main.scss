@@ -65,10 +65,66 @@
   }
 }
 
-.dropdown-link {
-  font-size: 14px;
-  color: $light-grey;
-  padding-right: 15px;
+.dropdown {
+  display: inline-block;
+  position: relative;
+
+  .dropdown-link {
+    cursor: pointer;
+    font-size: 14px;
+    color: $light-grey;
+    position: relative;
+  }
+
+  .dropdown-menu {
+    padding: 5px 0;
+    border-radius: 6px;
+    box-shadow: 1px 2px 3px 0 rgba(0,0,0,0.1);
+    position: absolute;
+    background: $white;      
+    margin-top: 5px;
+    border: solid 1px $base-border;
+    right: -10px;
+    z-index: 1;
+
+    .dropdown-item {
+      display: block;
+      min-width: 150px;
+      font-size: 14px;
+      color: $light-grey;
+      padding: 10px 15px;
+
+      &.active {
+        background: $light-grey;
+        color: $white;
+      }
+    }
+  }
+}
+
+.arrowdown {
+  position: relative;
+  display: inline-block;
+  width: 6px;
+  height: 8px;
+  margin-left: 3px;
+
+  &::after, &::before {
+    content: '';
+    position: absolute;
+    height: 7px;
+    width: 2px;
+    background: $light-grey;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &::before {
+    transform: rotate(45deg);
+    right: 0;
+  }
 }
 
 .user-list {
@@ -92,27 +148,47 @@
 }
 
 .dotted-icon {
-  height: 4px;
-  width: 4px;
-  background: $light-grey;
-  position: relative;
-  border-radius: 100%;
   cursor: pointer;
 
-  &::after, &::before {
-    border-radius: 100%;
-    position: absolute;
-    content: '';
+  span {
+    margin-bottom: 3px;
+    display: block;
     height: 4px;
     width: 4px;
-    background: $light-grey;   
+    background: $light-grey;
+    position: relative;
+    border-radius: 100%;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.users-detail {
+  margin-bottom: 20px;
+  white-space: nowrap;
+
+  &:last-child {
+    margin-bottom: 0;
   }
 
-  &::after {
-    top: -7px;
+  .round-label {
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    background: $base-red;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
   }
 
-  &::before {
-    bottom: -7px;
+  .users-name {
+    font-size: 14px;
+    margin-bottom: 3px;
+  }
+
+  .users-time {
+    font-weight: bold;
   }
 }

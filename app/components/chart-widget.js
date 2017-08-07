@@ -37,25 +37,49 @@ const ChartWidget = (props) => {
       {
         props.dropdown.map((item) => {
           return (
-            <a key={item.value} href="" className="dropdown-link">{item.value}</a>
+            <div className="dropdown mr-15">
+              <a key={item.value} href="" className="dropdown-link">{item.value} <span className="arrowdown" /></a>
+              <div className="dropdown-menu">
+                <a className="dropdown-item active">Weekly</a>
+                <a className="dropdown-item">Monthly</a>
+                <a className="dropdown-item">Yearly</a>
+              </div>
+            </div>
           );
         })
       }
-      <span className="dotted-icon" />
+      <div className="dropdown">
+        <div className="dotted-icon">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="dropdown-menu">
+          <a className="dropdown-item active">Weekly</a>
+          <a className="dropdown-item">Monthly</a>
+          <a className="dropdown-item">Yearly</a>
+        </div>
+      </div>
     </Panel.Head>
     <Panel.Body>
-      <div className="flex-container activity-detail">
-        <div className="row">
-          <div className="grid-4">
-            {
-              props.users.map((user) => {
-                return (<div key={user.name}>{user.name}</div>);
-              })
-            }
-          </div>
-          <div className="grid-8">
-            <RadialChart {...chartProps} />
-          </div>
+      <div className="row">
+        <div className="grid-4">
+          {
+            props.users.map((user) => {
+              return (
+                <div className="users-detail">
+                  <div className="round-label" />
+                  <div className="inline-block">
+                    <div className="users-name" key={user.name}>{user.name}</div>
+                    <div className="users-time">9h 20m</div>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+        <div className="grid-8">
+          <RadialChart {...chartProps} />
         </div>
       </div>
     </Panel.Body>
