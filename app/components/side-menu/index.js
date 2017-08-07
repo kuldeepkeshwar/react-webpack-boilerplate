@@ -8,6 +8,21 @@ export default class SideMenu extends React.Component {
     this.state = {
       open: false,
     };
+    this.mounted = true;
+    this.setNode = this.setNode.bind(this);
+    this.handleDocumentClick = this.handleDocumentClick.bind(this);
+  }
+  componentDidMount () {
+    document.addEventListener('click', this.handleDocumentClick, false);
+  }
+
+  componentWillUnmount () {
+    this.mounted = false;
+    document.removeEventListener('click', this.handleDocumentClick, false);
+  }
+
+  setNode(node) {
+    this.node = node;
   }
   clickHandler(index) {
     this.toggle();
@@ -21,9 +36,17 @@ export default class SideMenu extends React.Component {
       open: !this.state.open,
     });
   }
+
+  handleDocumentClick (event) {
+    if (this.mounted) {
+      if (!this.node.contains(event.target)) {
+        this.setState({ open: false });
+      }
+    }
+  }
   render () {
     return (
-      <div className="dropdown">
+      <div className="dropdown" ref={this.setNode} >
         <div role="presentation" className="dotted-icon" onClick={() => this.toggle()}>
           <span />
           <span />
