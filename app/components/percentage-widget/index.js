@@ -1,37 +1,16 @@
 import React from 'react';
-import Panel from './panel';
-import Tag from './tag';
+import Panel from './../panel';
+import Tag from './../tag';
+import DropDown from './../dropdown';
+import SideMenu from './../side-menu';
+import './styles.scss';
 
 const PercentageWidget = props => (
   <Panel>
     <Panel.Head>
       <span className="panel-title">{props.title}</span>
-      {
-        props.dropdown.map((item) => {
-          return (
-            <div className="dropdown mr-15">
-              <a key={item.value} href="" className="dropdown-link">{item.value} <span className="arrowdown" /></a>
-              <div className="dropdown-menu">
-                <a className="dropdown-item active">Last 7 days</a>
-                <a className="dropdown-item">Last 6 days</a>
-                <a className="dropdown-item">Last 5 days</a>
-              </div>
-            </div>
-          );
-        })
-      }
-      <div className="dropdown">
-        <div className="dotted-icon">
-          <span />
-          <span />
-          <span />
-        </div>
-        <div className="dropdown-menu">
-          <a className="dropdown-item active">Weekly</a>
-          <a className="dropdown-item">Monthly</a>
-          <a className="dropdown-item">Yearly</a>
-        </div>
-      </div>
+      <DropDown active={0} items={props.dropdown} />
+      <SideMenu items={props.dotOptions} />
     </Panel.Head>
     <Panel.Body>
       {props.users.map((user) => {
@@ -64,8 +43,9 @@ const PercentageWidget = props => (
 );
 PercentageWidget.propTypes = {
   users: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-  footer: React.PropTypes.objectOf(React.PropTypes.object).isRequired,
+  footer: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
   title: React.PropTypes.string.isRequired,
   dropdown: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  dotOptions: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 };
 export default PercentageWidget;

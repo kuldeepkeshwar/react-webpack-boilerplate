@@ -7,10 +7,11 @@ const appState = [
   {
     title: 'Keyboard & Mouse Activity',
     dropdown: [
-      { key: 'Last7days', value: 'Last 7 days', active: true },
+      { key: 'Monthly', value: 'Monthly', active: true },
+      { key: 'Daily', value: 'Daily', active: false },
     ],
     dotOptions: [
-      { key: 'edit', value: 'Edit widget' }, { key: 'delete', value: 'Delete widget' },
+      { key: 'edit', value: 'edit' }, { key: 'delete', value: 'delete' },
     ],
     users: [
       { image: 'http://lorempixel.com/user/50/50/', name: 'Raju Mazumder', percentage: 13 },
@@ -32,15 +33,16 @@ const appState = [
   {
     title: 'Highest percentage of Mobile Time Users',
     dropdown: [
-      { key: 'weekly', value: 'Weekly', active: true },
+      { key: 'Monthly', value: 'Monthly', active: true },
+      { key: 'Daily', value: 'Daily', active: false },
     ],
     dotOptions: [
-      { key: 'edit', value: 'Edit widget' }, { key: 'delete', value: 'Delete widget' },
+      { key: 'edit', value: 'edit' }, { key: 'delete', value: 'delete' },
     ],
     users: [
-      { name: 'Dmitry Shytsko', duration: ((0 * 60) + 30), fill: '#F65161' },
-      { name: 'Lester Douglas', duration: ((1 * 60) + 25), fill: '#FFD331' },
       { name: 'Elle Javier - Quingco', duration: ((9 * 60) + 20), fill: '#5A68C6' },
+      { name: 'Lester Douglas', duration: ((1 * 60) + 25), fill: '#FFD331' },
+      { name: 'Dmitry Shytsko', duration: ((0 * 60) + 30), fill: '#F65161' },
     ],
     footer: {
       users: [

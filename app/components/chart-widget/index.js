@@ -1,14 +1,16 @@
 import React from 'react';
 import { RadialBarChart, RadialBar } from 'recharts';
-import Panel from './panel';
-import Tag from './tag';
+import Panel from './../panel';
+import Tag from './../tag';
+import DropDown from './../dropdown';
+import SideMenu from './../side-menu';
+import './styles.scss';
 
 const defaultChartProps = {
   startAngle: 90,
-  maxAngle: 350,
   endAngle: -270,
   width: 350,
-  height: 180,
+  height: 195,
   innerRadius: 55,
   outerRadius: 95,
   barSize: 10,
@@ -25,41 +27,27 @@ const RadialChart = (props) => {
 RadialChart.propTypes = {
   dataKey: React.PropTypes.string.isRequired,
 };
-
+const timeToString = (time) => {
+  let tpl;
+  const h = Math.floor(time / 60);
+  const min = time - (h * 60);
+  if (h) {
+    tpl = `${h}h ${min}min`;
+  } else {
+    tpl = `${min}min`;
+  }
+  return tpl;
+};
 const ChartWidget = (props) => {
   const chartProps = {
-    data: props.users,
+    data: props.users.map(u => u).reverse(),
     dataKey: 'duration',
   };
   return (<Panel>
     <Panel.Head>
       <span className="panel-title">{props.title}</span>
-      {
-        props.dropdown.map((item) => {
-          return (
-            <div className="dropdown mr-15">
-              <a key={item.value} href="" className="dropdown-link">{item.value} <span className="arrowdown" /></a>
-              <div className="dropdown-menu">
-                <a className="dropdown-item active">Weekly</a>
-                <a className="dropdown-item">Monthly</a>
-                <a className="dropdown-item">Yearly</a>
-              </div>
-            </div>
-          );
-        })
-      }
-      <div className="dropdown">
-        <div className="dotted-icon">
-          <span />
-          <span />
-          <span />
-        </div>
-        <div className="dropdown-menu">
-          <a className="dropdown-item active">Weekly</a>
-          <a className="dropdown-item">Monthly</a>
-          <a className="dropdown-item">Yearly</a>
-        </div>
-      </div>
+      <DropDown active={0} items={props.dropdown} />
+      <SideMenu items={props.dotOptions} />
     </Panel.Head>
     <Panel.Body>
       <div className="row">
@@ -67,11 +55,11 @@ const ChartWidget = (props) => {
           {
             props.users.map((user) => {
               return (
-                <div className="users-detail">
-                  <div className="round-label" />
+                <div className="users-detail" key={user.name}>
+                  <div className="round-label" style={{ background: user.fill }} />
                   <div className="inline-block">
-                    <div className="users-name" key={user.name}>{user.name}</div>
-                    <div className="users-time">9h 20m</div>
+                    <div className="users-name" >{user.name}</div>
+                    <div className="users-time">{timeToString(user.duration)}</div>
                   </div>
                 </div>
               );
@@ -100,8 +88,9 @@ const ChartWidget = (props) => {
 };
 ChartWidget.propTypes = {
   title: React.PropTypes.string.isRequired,
-  dropdown: React.PropTypes.arrayOf.isRequired,
-  users: React.PropTypes.arrayOf.isRequired,
-  footer: React.PropTypes.objectOf.isRequired,
+  dropdown: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  users: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  footer: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
+  dotOptions: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 };
 export default ChartWidget;
