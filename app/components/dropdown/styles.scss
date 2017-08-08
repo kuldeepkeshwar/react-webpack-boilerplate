@@ -10,6 +10,7 @@
     font-size: 14px;
     color: $light-grey;
     position: relative;
+    outline:none;
   }
 
   .dropdown-menu {
@@ -30,6 +31,11 @@
       font-size: 14px;
       color: $light-grey;
       padding: 10px 15px;
+      outline: none;
+
+      &:hover {
+        font-weight: 500;
+      }
 
       &.active {
         background: $light-grey;
@@ -61,6 +67,7 @@
     transform: rotate(45deg);
     right: 0;
   }
+  
   &.open {
     &::after {
       transform: rotate(45deg);

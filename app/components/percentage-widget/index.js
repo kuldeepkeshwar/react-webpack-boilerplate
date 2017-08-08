@@ -4,6 +4,7 @@ import Tag from './../tag';
 import DropDown from './../dropdown';
 import SideMenu from './../side-menu';
 import './styles.scss';
+import Avatar from './../avatar';
 
 const PercentageWidget = props => (
   <Panel>
@@ -16,7 +17,7 @@ const PercentageWidget = props => (
       {props.users.map((user) => {
         return (
           <div key={user.name} className="flex-container activity-detail">
-            <div className="avatar"><img src={user.image} alt="" /></div>
+            <Avatar {...user} />
             <div className="name">{user.name}</div>
             <div className="progress-bar">
               <div className="progress" style={{ width: `${user.percentage}%` }} />
@@ -29,11 +30,7 @@ const PercentageWidget = props => (
     <Panel.Footer>
       <div className="user-list">
         {props.footer.users.map((user) => {
-          return (
-            <div key={user.image} className="avatar">
-              <img src={user.image} alt="" />
-            </div>
-          );
+          return <Avatar {...user} />;
         })}
       </div>
       <a href="" className="link">+{props.footer.moreCount} more</a>

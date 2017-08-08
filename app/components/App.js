@@ -3,16 +3,18 @@ import ChartWidget from './chart-widget';
 import PercentageWidget from './percentage-widget';
 import Header from './header';
 
+const dropdown = [
+      { key: 'Monthly', value: 'Monthly', active: true },
+      { key: 'Daily', value: 'Daily', active: false },
+];
+const dotOptions = [
+      { key: 'edit', value: 'Edit' }, { key: 'delete', value: 'Delete' },
+];
 const appState = [
   {
     title: 'Keyboard & Mouse Activity',
-    dropdown: [
-      { key: 'Monthly', value: 'Monthly', active: true },
-      { key: 'Daily', value: 'Daily', active: false },
-    ],
-    dotOptions: [
-      { key: 'edit', value: 'edit' }, { key: 'delete', value: 'delete' },
-    ],
+    dropdown,
+    dotOptions,
     users: [
       { image: 'http://lorempixel.com/user/50/50/', name: 'Raju Mazumder', percentage: 13 },
       { image: 'http://lorempixel.com/user/50/50/', name: 'Khurram Butt', percentage: 13 },
@@ -32,13 +34,8 @@ const appState = [
   },
   {
     title: 'Highest percentage of Mobile Time Users',
-    dropdown: [
-      { key: 'Monthly', value: 'Monthly', active: true },
-      { key: 'Daily', value: 'Daily', active: false },
-    ],
-    dotOptions: [
-      { key: 'edit', value: 'edit' }, { key: 'delete', value: 'delete' },
-    ],
+    dropdown,
+    dotOptions,
     users: [
       { name: 'Elle Javier - Quingco', duration: ((9 * 60) + 20), fill: '#5A68C6' },
       { name: 'Lester Douglas', duration: ((1 * 60) + 25), fill: '#FFD331' },

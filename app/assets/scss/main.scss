@@ -1,18 +1,2 @@
 @import '_app.scss';
 
-
-.flex-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-
-  .name {
-    flex: 1 auto;
-  }
-
-  .progress-bar {
-    margin-right: 20px;
-  }
-}
-

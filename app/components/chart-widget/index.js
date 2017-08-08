@@ -4,6 +4,7 @@ import Panel from './../panel';
 import Tag from './../tag';
 import DropDown from './../dropdown';
 import SideMenu from './../side-menu';
+import Avatar from './../avatar';
 import './styles.scss';
 
 const defaultChartProps = {
@@ -74,11 +75,7 @@ const ChartWidget = (props) => {
     <Panel.Footer>
       <div className="user-list">
         {props.footer.users.map((user) => {
-          return (
-            <div key={user.image} className="avatar">
-              <img src={user.image} alt="" />
-            </div>
-          );
+          return <Avatar {...user} />;
         })}
       </div>
       {props.footer.tags.map(tag => <Tag key={tag.text} {...tag} />)}
